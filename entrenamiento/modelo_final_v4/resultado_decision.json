@@ -1,0 +1,19 @@
+{
+ "A_cajas_humanas": {
+  "umbral": 0.25,
+  "primera_ok": 0.8,
+  "descarte_ok": 0.98
+ },
+ "B_cajas_detector": {
+  "umbral": 0.6000000000000001,
+  "primera_ok": 1.0,
+  "descarte_ok": 0.98
+ },
+ "errores_B": [
+  [
+   "descarte__IMG_9851.jpg",
+   1,
+   0.14
+  ]
+ ]
+}

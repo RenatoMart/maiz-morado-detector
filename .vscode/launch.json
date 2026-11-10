@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Aplicación de escritorio",
+			"type": "debugpy",
+			"request": "launch",
+			"module": "app_escritorio.app",
+			"cwd": "${workspaceFolder}",
+			"console": "integratedTerminal"
+		},
+		{
+			"name": "Probar el modelo final (80 fotos de prueba)",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${workspaceFolder}/entrenamiento/probar.py",
+			"args": ["--modelo", "modelo_final_v4", "--salida", "pruebas_v4"],
+			"cwd": "${workspaceFolder}/entrenamiento",
+			"console": "integratedTerminal"
+		}
+	]
+}

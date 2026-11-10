@@ -1,0 +1,17 @@
+# Entorno usado: Python 3.14, solo CPU.
+ultralytics==8.4.203
+torch==2.15.0
+torchvision==0.29.2
+opencv-python-headless==5.0.0.93
+numpy==2.5.4
+pandas==3.1.1
+scikit-learn==1.9.1
+scipy==1.18.1
+pillow==13.0.0
+PyYAML==6.0.3
+matplotlib==3.11.2
+cleanlab==2.9.0
+# Solo para generar el informe (carpeta DEMAS/informe)
+reportlab==5.1.0
+python-docx==1.2.0
+fonttools==4.68.0

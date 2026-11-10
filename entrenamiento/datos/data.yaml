@@ -1,0 +1,10 @@
+path: /home/renatomr/PycharmProjects/Postcosecha-maiz-morado-entrenamiento/PYTHON/entrenamiento/datos
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: granos quebrados o deteriorados
+  1: perdida extensa de granos
+  2: pigmentacion roja
+  3: pudricion
+  4: zona sin granos

@@ -1,0 +1,17 @@
+Fotos de ejemplo para probar la web (salen del conjunto de prueba, que el modelo no vio al entrenar).
+
+primera_ok: mazorcas de primera que el sistema acepta.
+descarte_ok: mazorcas de descarte que el sistema rechaza.
+error: la mazorca de descarte que el sistema dejó pasar como primera (caso fallido real).
+
+Tabla de lo esperado:
+archivo,real,veredicto_del_sistema,prob_descarte,defectos_pct
+01_primera_primera_ok.jpg,primera,Primera,0.00,2.6
+02_primera_primera_ok.jpg,primera,Primera,0.01,4.0
+03_primera_primera_ok.jpg,primera,Primera,0.04,5.7
+04_primera_primera_ok.jpg,primera,Primera,0.46,6.8
+05_descarte_descarte_ok.jpg,descarte,Descarte,1.00,95.3
+06_descarte_descarte_ok.jpg,descarte,Descarte,1.00,100.0
+07_descarte_descarte_ok.jpg,descarte,Descarte,1.00,99.7
+08_descarte_descarte_ok.jpg,descarte,Descarte,0.92,45.6
+09_descarte_error.jpg,descarte,Primera,0.14,9.1

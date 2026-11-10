@@ -1,0 +1,9 @@
+{
+  "_nota": "Correcciones indicadas por el equipo el 08/11/2026. Se aplican al construir el dataset; no se toca el archivo original de Roboflow.",
+  "excluir": {
+    "a8LEqMiyFcvehZEpsLcR": "primera_clase__IMG_8603: la punta está podrida; se quita del sistema de Roboflow"
+  },
+  "cambiar_clase": {
+    "YTZF2u2TJSljppqJ0wpa": {"de": "zona sin granos", "a": "granos quebrados o deteriorados", "nota": "primera_clase__IMG_7009: es deterioro (se ve blanco), no falta de granos"}
+  }
+}

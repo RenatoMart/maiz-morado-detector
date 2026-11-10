@@ -1,0 +1,131 @@
+{
+ "detector": {
+  "val": {
+   "imagenes": 142,
+   "map50": 0.156,
+   "map50_95": 0.0431,
+   "precision": 0.2373,
+   "recall": 0.2216,
+   "ap50": {
+    "granos quebrados o deteriorados": 0.181,
+    "perdida extensa de granos": 0.26,
+    "pigmentacion roja": 0.072,
+    "pudricion": 0.166,
+    "zona sin granos": 0.102
+   }
+  },
+  "test": {
+   "imagenes": 80,
+   "map50": 0.1509,
+   "map50_95": 0.0498,
+   "precision": 0.2102,
+   "recall": 0.2025,
+   "ap50": {
+    "granos quebrados o deteriorados": 0.221,
+    "perdida extensa de granos": 0.138,
+    "pigmentacion roja": 0.189,
+    "pudricion": 0.13,
+    "zona sin granos": 0.076
+   }
+  }
+ },
+ "ablacion": {
+  "completo": {
+   "umbral": 0.6,
+   "primera_ok": 30,
+   "primera": 30,
+   "descarte_ok": 49,
+   "descarte": 50
+  },
+  "sin color": {
+   "umbral": 0.4,
+   "primera_ok": 26,
+   "primera": 30,
+   "descarte_ok": 49,
+   "descarte": 50
+  },
+  "solo areas": {
+   "umbral": 0.25,
+   "primera_ok": 24,
+   "primera": 30,
+   "descarte_ok": 49,
+   "descarte": 50
+  },
+  "solo conteos": {
+   "umbral": 0.35,
+   "primera_ok": 21,
+   "primera": 30,
+   "descarte_ok": 47,
+   "descarte": 50
+  },
+  "solo color": {
+   "umbral": 0.05,
+   "primera_ok": 0,
+   "primera": 30,
+   "descarte_ok": 50,
+   "descarte": 50
+  }
+ },
+ "regla_contar_cajas_0.25": {
+  "primera_ok": 20,
+  "descarte_ok": 10
+ },
+ "por_fondo_prueba": {
+  "tela blanca o gris": [
+   18,
+   18,
+   8,
+   9
+  ],
+  "césped": [
+   4,
+   4,
+   37,
+   37
+  ],
+  "malla o yute": [
+   8,
+   8,
+   4,
+   4
+  ]
+ },
+ "fondo_todo_el_conjunto": {
+  "tela blanca o gris": {
+   "primera": 212,
+   "descarte": 115
+  },
+  "césped": {
+   "primera": 12,
+   "descarte": 326
+  },
+  "malla o yute": {
+   "primera": 29,
+   "descarte": 57
+  }
+ },
+ "errores": [
+  [
+   "descarte__IMG_9851.jpg",
+   "descarte",
+   0.14
+  ]
+ ],
+ "conteos": {
+  "imagenes": 751,
+  "grupos": 413,
+  "primera": 253,
+  "descarte": 498,
+  "primera_sin_cajas": 13,
+  "split": {
+   "train": 529,
+   "val": 142,
+   "test": 80
+  },
+  "cajas": {
+   "train": 1650,
+   "val": 471,
+   "test": 297
+  }
+ }
+}

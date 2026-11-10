@@ -1,0 +1,132 @@
+# Configuración única del sistema. El porqué de cada valor está en README.md.
+
+roboflow:
+  workspace: postcosecha-del-maiz-morado
+  proyecto: purple-corn-defect-grading-pilot
+  version: 4
+  formato: yolov11
+
+# Las claves son el nombre normalizado de la clase (minúsculas, sin tildes, con "_").
+clases:
+  zona_sin_granos:
+    nombre: Zona sin granos
+    significado: Hueco continuo donde faltan uno o varios granos.
+    critica: false
+    color: "#F2B705"
+  pigmentacion_roja:
+    nombre: Pigmentación roja
+    significado: Granos rojos en lugar del morado; se toleran hasta 5.
+    critica: false
+    color: "#E5383B"
+  pudricion:
+    nombre: Pudrición
+    significado: Deterioro fúngico con tejido oscuro, blando o con moho.
+    critica: true
+    color: "#2DC653"
+  granos_quebrados_o_deteriorados:
+    nombre: Granos quebrados o deteriorados
+    significado: Granos rotos o deteriorados; se toleran hasta 5.
+    critica: false
+    color: "#3A86FF"
+  perdida_extensa_de_granos:
+    nombre: Pérdida extensa de granos
+    significado: Falta de granos en al menos el 25 % de la cara visible.
+    critica: true
+    color: "#FF4FD8"
+
+# Otros nombres que puede traer un export y a qué clase corresponden.
+alias:
+  ausencia_de_granos: zona_sin_granos
+
+regla:
+  clase_conteo: zona_sin_granos
+  max_zonas_primera: 1   # 0 o 1 zona no baja de Primera
+  max_zonas_segunda: 3   # 2 o 3 zonas = Segunda; 4 o más = Descarte
+  # Máximo tolerado por clase; al superarlo, la mazorca es Descarte.
+  # Hoy se compara con el número de cajas, no con granos contados.
+  limites_descarte:
+    pigmentacion_roja: 5
+    granos_quebrados_o_deteriorados: 5
+
+fusion:
+  conf_defectos: 0.25    # confianza mínima de una detección (valor del artículo)
+  p_sana_minima: 0.50    # sin detecciones y p(sana) menor a esto => Revisar
+  p_sana_contradice: 0.90 # con detecciones y p(sana) mayor o igual a esto => avisar
+
+datos:
+  semilla: 42
+  proporciones: {train: 0.70, val: 0.20, test: 0.10}
+  prefijos_grado:
+    primera: Primera
+    segunda: Segunda
+    tercera: Descarte
+    descarte: Descarte
+
+modelo1:
+  nombre_clase_sana: sana
+  nombre_clase_defecto: defectuosa
+  experimentos:
+    C1:
+      model: yolo11n-cls.pt
+      imgsz: 512
+      epochs: 50
+      batch: 16
+      optimizer: AdamW
+      lr0: 0.001
+      cos_lr: true
+      patience: 15
+      dropout: 0.2
+      weight_decay: 0.001
+      auto_augment: null     # con null se aplican los hsv_* de abajo
+      hsv_h: 0.005
+      hsv_s: 0.3
+      hsv_v: 0.3
+      erasing: 0.2
+      fliplr: 0.5
+      flipud: 0.5
+    C2:
+      base: C1
+      model: yolo26n-cls.pt
+
+modelo2:
+  experimentos:
+    # E1 a E4: plan de la Tabla 8 del artículo, sin cambios.
+    E1: &articulo
+      model: yolo11n.pt
+      imgsz: 640
+      epochs: 60
+      batch: 8
+      optimizer: Adam
+      lr0: 0.001
+      patience: 10
+    E2:
+      <<: *articulo
+      epochs: 80
+    E3:
+      <<: *articulo
+      batch: 16
+    E4:
+      <<: *articulo
+      model: yolo11s.pt
+    # R1 y R2: propuesta para defectos pequeños y etiquetas imperfectas.
+    R1: &propuesta
+      model: yolo11s.pt
+      imgsz: 960
+      epochs: 150
+      batch: 8
+      optimizer: AdamW
+      lr0: 0.001
+      cos_lr: true
+      weight_decay: 0.001
+      patience: 30
+      hsv_h: 0.005
+      hsv_s: 0.3
+      hsv_v: 0.3
+      mosaic: 0.5
+      close_mosaic: 15
+      fliplr: 0.5
+      flipud: 0.5
+      degrees: 10
+    R2:
+      <<: *propuesta
+      model: yolo26s.pt

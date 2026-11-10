@@ -1,0 +1,9 @@
+{
+	"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+	"python.terminal.activateEnvironment": true,
+	"python.analysis.extraPaths": ["${workspaceFolder}"],
+	"python.testing.unittestEnabled": true,
+	"python.testing.unittestArgs": ["-s", "tests"],
+	"files.exclude": { "**/__pycache__": true, "**/*.pyc": true },
+	"search.exclude": { "**/.venv": true, "entrenamiento/datos": true, "entrenamiento/runs": true, "estudio_piloto/datos": true }
+}

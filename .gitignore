@@ -1,0 +1,39 @@
+# entornos y cachés
+.venv/
+.venv_*/
+__pycache__/
+*.pyc
+.env
+
+# pesos base de YOLO (se descargan solos); solo se guarda el modelo final
+*.pt
+!entrenamiento/modelo_final_v4/best.pt
+
+# dataset pesado: se reconstruye con entrenamiento/construir_dataset.py (descarga las fotos de Roboflow)
+entrenamiento/datos/images/
+entrenamiento/datos/img/
+entrenamiento/datos/mask/
+entrenamiento/datos/tmp/
+entrenamiento/datos/rasgos_train.json
+entrenamiento/datos/dets_ajuste.json
+entrenamiento/datos/meta_v1.json
+entrenamiento/datos/meta_v2.json
+entrenamiento/datos/registros_v1.json
+estudio_piloto/datos/
+estudio_piloto/runs/
+
+# resultados de entrenamiento y versiones anteriores del modelo
+entrenamiento/runs/
+entrenamiento/logs/
+entrenamiento/modelo_final_ajuste/
+entrenamiento/modelo_final_final/
+entrenamiento/modelo_final_v2/
+entrenamiento/modelo_final_v3/
+entrenamiento/pruebas/
+entrenamiento/pruebas_antes/
+entrenamiento/pruebas_v2/
+entrenamiento/pruebas_v3/
+entrenamiento/pruebas_v4/*.jpg
+data/
+runs/
+modelos/

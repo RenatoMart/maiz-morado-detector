@@ -1,0 +1,19 @@
+{
+ "fotos": 80,
+ "primera": 30,
+ "descarte": 50,
+ "primera_ok": 30,
+ "descarte_ok": 49,
+ "errores": [
+  [
+   "descarte__IMG_9851.jpg",
+   "descarte",
+   "Primera",
+   0.14
+  ]
+ ],
+ "defectos_pct_mediano": {
+  "primera": 4.4,
+  "descarte": 89.5
+ }
+}
